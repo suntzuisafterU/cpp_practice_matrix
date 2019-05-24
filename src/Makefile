@@ -2,7 +2,7 @@
 CC:=gcc
 
 CPPFLAGS:=
-CXXFLAGS:=-g
+CXXFLAGS:=-g -std=c++11
 LDFLAGS:=
 
 SRCS:=Common.cpp
@@ -12,5 +12,9 @@ SRCS:=Common.cpp
 all: Common
 
 Common: $(SRCS)
+
+clean:
+	rm -f Common
+	rm -rf Common.dSYM
 
 

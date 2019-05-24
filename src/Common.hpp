@@ -23,7 +23,7 @@ namespace MyMatrix {
       int getXdim();
       int getYdim();
       int** getMat();
-      void show(Matrix2D A);
+      void show();
 
   };
 }
