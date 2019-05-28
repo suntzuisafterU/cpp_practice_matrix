@@ -106,6 +106,19 @@ int main(){
 
 
   /**
+   * C++ vs C basic syntax:
+   *   - references (int&) vs pointers (int*) in C++:
+   *         - can not refer directly to a references value (memory address) after creation.
+   *         - any use of the references identifier will refer to the associated object.
+   *         - references can not be "reseated" to refer to a different object. (this is often done with pointers)
+   *         - references can not be NULL (they may refer to some invalid object though)
+   *           - hence containers of references are not allowed.
+   *         - MUST be initialized on declaration (since can not be reseated).
+   *         - Conversion: `int* ptr = &x` will convert the reference to x directly to a pointer.
+   *                  and: `int& x = ptr` will convert in the other direction.
+   *
+   *
+   *
    * Other keywords to learn:
    *   - extern: lets compiler know that variable has been declared elsewhere, outside the current scope.
    *             How is this different from using a namespace?  
@@ -115,25 +128,38 @@ int main(){
    *   - volatile
    *   - static: Like java.  Only defined once, belongs to the class.
    *   - typedef: is an alias
-   *   - struct: difference from union?
+   *   - struct (in C):
+   *   - struct (in C++): (struct is usefull for 'bundling' things, usually data, to raise abstraction)
+   *     - difference from union?
+   *     - difference from class:
+   *       - ONLY difference is the default accessibility of member variables and functions. (struct public, class private)
+   *         - This also applies to inheritance, `struct T: Base` == `struct T: public Base` and
+   *                                             `class T: Base` == `class T: private Base`
+   *     
    * C++ only keywords:
    *   - auto (and decltype??): Allows compiler to deduce type at compile time.  Does not impact run time. 
+   *                            NOTE: auto& is required to store a reference to a type (say, int&)
    *   - explicit: Applied to constructors and conversion operators. Prevents the compiler from doing
    *               an implicit parameter conversion.  This implicit parameter conversion is strange 
    *               behaviour indeed, and could be something to watch out for.  explicit just keeps the 
    *               implicit paramter conversion from hiding errors.
    *   - operator: For overloading operators. Like haskell.
    *   - this: References the current instance of a class, in the current scope.  Is a points, use with arrow notation.
-   *   - delete: and delete[] for arrays.  Delete an object or array that was created by the new expression. 
+   *   - delete: and delete[] for arrays.  Delete an object or array that was created by the new expression. (dynamic allocation only)
+   *             NOTE: Make sure that you only delete each object once.
    *   - typeid: in <typeinfo> header.
    *   - dynamic_cast
-   *   - new
+   *   - new: dynamic allocation of memory.
    *   - template: 
-   *   - inline
+   *   - inline: Expands the function inline instead of making a procedure call.  Effective for small procedures. Note that this can increase
+   *             the memory footprint of a program if the inlined functions are large.  Best suited for small, macro-esc functions.
    *   - mutable
    *   - typename
    *   - static_cast
-   *   - friend
+   *   - friend: can access private and protected members of other class that defines it as friend. Usefull when otherwise we 
+   *             would require a bunch of public get() methods that are only used in one other class.
+   *             note: friendship is one-way and NOT inherited.
+   *             note: no equivalent functionality in Java.
    *   - public: Is it like java?  Are classes public by default?
    *   - protected: is it like java? Does it apply to methods?
    *   - using: is this only for namespaces?  Is this only for scoping?
@@ -148,6 +174,11 @@ int main(){
    *               are ALSO virtual!
    *   - const_cast
    *   - wchar_t
+   *
+   *   Resources:
+   *   - https://isocpp.org/wiki/faq/ctors#named-parameter-idiom (whole site is generally a good resource)
+   *   - https://isocpp.org/wiki/faq/ctors#explicit-ctors
+   *   - https://isocpp.org/wiki/faq/ctors#ctor-work-right (constructors and desctructors, still working on it)
    */
 
 }
