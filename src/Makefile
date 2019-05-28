@@ -5,16 +5,19 @@ CPPFLAGS:=
 CXXFLAGS:=-g -std=c++11
 LDFLAGS:=
 
-SRCS:=Common.cpp
+# SRCS:=Common.cpp
 
 .PHONY: all clean
 
-all: Common
+all: Common DestructorConstructor
 
-Common: $(SRCS)
+Common: Common.cpp
+
+DestructorConstructor: DestructorConstructor.cpp
 
 clean:
 	rm -f Common
+	rm -f DestructorConstructor
 	rm -rf Common.dSYM
 
 
