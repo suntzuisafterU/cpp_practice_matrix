@@ -18,6 +18,7 @@ int main() {
 
   m1->show();
 
+  // Does the ~Matrix destructor implicitly get called at the end of our program?
 };
 
 /**
