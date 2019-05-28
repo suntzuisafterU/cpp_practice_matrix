@@ -2,7 +2,7 @@
 CC:=gcc
 
 CPPFLAGS:=
-CXXFLAGS:=-g -std=c++11
+CXXFLAGS:=-g -std=c++17
 LDFLAGS:=
 
 # SRCS:=Common.cpp
@@ -19,5 +19,6 @@ clean:
 	rm -f Common
 	rm -f DestructorConstructor
 	rm -rf Common.dSYM
+	rm -rf DestructorConstructor.dSYM
 
 

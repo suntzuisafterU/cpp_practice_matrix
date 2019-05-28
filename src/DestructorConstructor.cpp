@@ -1,8 +1,8 @@
 #include <iostream>
 
-int main {
+int main() {
   
-}
+};
 
 struct Point {
   int x,y;

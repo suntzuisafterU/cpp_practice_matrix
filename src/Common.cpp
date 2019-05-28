@@ -3,6 +3,7 @@
 #include "Common.hpp"
 
 using namespace std;
+// is this c++17 syntax?? No warnings when compiling with c++11
 using std::setw; // from iomanip
 
 namespace MyMatrix {
@@ -148,13 +149,13 @@ int main(){
    *   - delete: and delete[] for arrays.  Delete an object or array that was created by the new expression. (dynamic allocation only)
    *             NOTE: Make sure that you only delete each object once.
    *   - typeid: in <typeinfo> header.
+   *   - typename: difference from typeid and from C's typedef???
    *   - dynamic_cast
    *   - new: dynamic allocation of memory.
    *   - template: 
    *   - inline: Expands the function inline instead of making a procedure call.  Effective for small procedures. Note that this can increase
    *             the memory footprint of a program if the inlined functions are large.  Best suited for small, macro-esc functions.
    *   - mutable
-   *   - typename
    *   - static_cast
    *   - friend: can access private and protected members of other class that defines it as friend. Usefull when otherwise we 
    *             would require a bunch of public get() methods that are only used in one other class.
@@ -163,7 +164,10 @@ int main(){
    *   - public: Is it like java?  Are classes public by default?
    *   - protected: is it like java? Does it apply to methods?
    *   - using: is this only for namespaces?  Is this only for scoping?
-   *   - reinterpret_cast
+   *     - Not only for namespaces.  Many other uses, but not important for us (I think not important for us)
+   *       - https://en.cppreference.com/w/cpp/keyword/using
+   *   - reinterpret_cast<new_type>(expression) : Compiler directive (unlike static_cast).  Does not impact
+   *                                              runtime.  
    *   - throw: What types of exceptions?
    *   - catch
    *   - try
