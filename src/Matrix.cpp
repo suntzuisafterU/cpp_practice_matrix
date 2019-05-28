@@ -1,4 +1,4 @@
-#include <Matrix.hpp>
+#include "Matrix.hpp"
 
 using std::string;
 
@@ -43,8 +43,6 @@ namespace _Matrix {
     free(this->A);
   };
 
-
-
   /**
    * What is the proper specification of a function within a custom namespace?
    * This was my first intuition and error: `string Matrix::show() { ... };`
@@ -56,6 +54,13 @@ namespace _Matrix {
   void Matrix::show() { // NOTE: This is from the namespace _Matrix
     /* How do we build a string in C++ ? */
     /* How do we return null in C++ ? */ // return NULL;
-    throw new Utils::NotImplementedException();
+    for(int j=0; j<this->cols; j++){
+      printf("[ ");
+      for(int i=0; i<this->rows; i++){
+        printf(" %d ", this->A[i*j + j]);
+      }
+      printf(" ]\n");
+    }
+    // throw new Utils::NotImplementedException();
   };
 }
