@@ -45,6 +45,31 @@ namespace _Matrix {
   };
 
   /**
+   * What is the difference between passing in the Matrix as a:
+   *   `Matrix` vs
+   *   `Matrix&` vs
+   *   `Matrix*` ??
+   */
+  Matrix& Matrix::addMref(Matrix other) {
+    Matrix* result = new Matrix(this->rows, this->cols);
+    int* new_arr = result->A;
+    int* this_arr = this->A;
+    // This is an error: 
+    //   `int* other_arr = other->A;`
+    //   Since `other` is NOT A POINTER!
+    //   ie, by using `Matrix other` in the param definition, we have access to a ... reference?
+    int* other_arr = other.A;
+
+    register int i=0;
+    register int j=this->cols;
+    while (i < this->rows * this->cols){
+      int idx = i*j + j;
+      new_arr[idx] = this_arr[idx] + other_arr[idx];
+    }
+    return result&;
+  }
+
+  /**
    * What is the proper specification of a function within a custom namespace?
    * This was my first intuition and error: `string Matrix::show() { ... };`
    * ANSWER: Was missing the namespace specifier.  Must use namespace and class

@@ -13,7 +13,7 @@ namespace _Matrix {
   /**
    * How is inheritance handled again?
    */
-  class Matrix {
+  const class Matrix {
     public:
       /**
        * Basic matrix.
@@ -26,9 +26,19 @@ namespace _Matrix {
        */
       void show();
 
+      Matrix& addMref(Matrix other);
+
+      Matrix* addMptr(Matrix other);
+
+      Matrix addM(Matrix other);
+
     private:
       int rows; // Record dimensions
       int cols;
       int* A;
+      // const int* A; // Not happy when trying to initialize another pointer to point at this.
+      // mutable int* A; // Would be ideal if we could make the whole datastructure const except
+      // for this `int* A;`
+      // Starting to make sense why numpy arrays are immutable.
   };
 }

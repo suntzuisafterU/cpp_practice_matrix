@@ -155,7 +155,7 @@ int main(){
    *   - template: 
    *   - inline: Expands the function inline instead of making a procedure call.  Effective for small procedures. Note that this can increase
    *             the memory footprint of a program if the inlined functions are large.  Best suited for small, macro-esc functions.
-   *   - mutable
+   *   - mutable: Allows an object instantiated with the const keyword to have members that are considered mutable.
    *   - static_cast
    *   - friend: can access private and protected members of other class that defines it as friend. Usefull when otherwise we 
    *             would require a bunch of public get() methods that are only used in one other class.
